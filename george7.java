@@ -1,40 +1,48 @@
-import java.util.InputMismatchException;
+
 import java.util.Scanner;
 
-public class george7 {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        boolean viga = true;
-
-        do {
-            try {
-                //arvutab kokku ja väljastab arvud
-                System.out.print("esimene arv ");
-                double arv1 = scanner.nextDouble();
-                System.out.print("teine arv ");
-                double arv2 = scanner.nextDouble();
-                double tulemus = arv1 + arv2;
-                System.out.println("Tulemus: " + tulemus); 
-
-                // kui kirjutad numbri asemel tähe siis utleb "viga"
-                viga = false;
-            } catch (InputMismatchException e) {
-                System.out.println("sisesta number palun"); 
-                
-            }
-        } while (viga);
-
-        scanner.close();
+public class kt5{
+    public static void main(String[] args)  {
+   
+    Scanner sisend = new Scanner(System.in); 
+    System.out.println("mitu takistit soovite ühendada: ");
+    
+    //teeb  taisarvuks
+    int takistiteArv = sisend.nextInt();
+    double kogutakistusJ = 0;
+    double kogutakistusRoppselt = 0;
+    //arvutab kokku 
+    for (int i = 1; i <= takistiteArv; i++) {
+    System.out.print("sisesta" + i + ". takisti takistus ohmides: ");
+    double takistus = sisend.nextDouble();
+     // lisab jadamid takistusse
+     
+     kogutakistusJ += takistus;
+    kogutakistusRoppselt = 1 / (1 / kogutakistusRoppselt + 1 / takistus);
     }
+        //kuvab valja arvutused
+        System.out.println("jadamisi ühendatud takistite kogutakistus: " + kogutakistusJ + " ohm");
+        System.out.println("rööpselt ühendatud takistite kogutakistus: " + kogutakistusRoppselt + " ohm");
+        
+    
+
+
+
+        
+        sisend.close();
+
+
+       
+        
+
+    
+        
+    
+    
+    
+    }
+
+
 }
 
-
-
-
-
-
-
-
-
-
-
+    
